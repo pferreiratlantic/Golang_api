@@ -20,9 +20,9 @@ $ export GO111MODULE=on
 $ export GOFLAGS=-mod=vendor
 $ /usr/local/go/bin/go mod download
 $ /usr/local/go/bin/go mod vendor
-$ /usr/local/go/bin/go build -o Exercise1-API.bin
-$ killall -9 Exercise1-API.bin -v
-$ ./Exercise1-API.bin &
+$ /usr/local/go/bin/go build -o Exercise1Api
+$ killall -9 Exercise1Api -v
+$ ./Exercise1Api &
 ```
 
 Server is listening on localhost:10000
