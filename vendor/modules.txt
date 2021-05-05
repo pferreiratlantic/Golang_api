@@ -6,3 +6,5 @@ github.com/gorilla/mux
 github.com/lib/pq
 github.com/lib/pq/oid
 github.com/lib/pq/scram
+# github.com/mattn/go-sqlite3 v1.14.7
+## explicit

@@ -1,8 +1,55 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Exercicio1</title>
-  </head>
-  <body>
-    <h2>Parcel Tracker</h2>
-  </body>
+	<head>
+	</head>
+
+	<body>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+		<script src="js/js.js"></script>
+
+		<h2>Load User Database</h2>
+		<div>
+  			<label for="fname">URL to file</label><br>
+  			<input type="text" id="filePath" name="filePath" value="leave empty to load predefined file"><br>
+		    <button id= "button1" class="buttonPath" name="buttonPath" type="submit" value="Import">Import</button>
+		    <label id="loadingLabel"></label>
+		<div> 
+
+		<p></br></p>
+		<h2>Get List of Users By Country</h2>
+		<form action="/statistics">
+			<label for="countries">Choose a country:</label>
+			<select name="country" id="countrySelector">
+			</select>
+			<br><br>
+		    <button id= "button2" class="button" name="button" type="submit" value="Search">Search</button>
+		</form>
+		<table id="listUsersByCountry">
+			<thead>
+				<tr>
+					<td>Email</td>
+					<td>Phone</td>
+					<td>ParcelWeight</td>
+				</tr>
+			</thead>
+		</table>
+
+		<div id="offsetBar">
+			<button id="buttonFirst" class="button" name="buttonFirst" type="submit" value="First">First</button>
+			<button id="buttonNext" class="button" name="buttonSencond" type="submit" value="Next">Next</button>
+			<button id="buttonPrevious" class="button" name="buttonThird" type="submit" value="Previous">Previous</button>
+		</div>
+		<div><p id="offsetDimension"></p></div>
+
+		<p></br></p>
+		<h2>Number of User Per Country</h2>
+		<table id="numOfUserPerCountry">
+			<thead>
+				<tr>
+					<td>Number of Users</td>
+					<td>Country</td>
+				</tr>
+			</thead>
+		</table>
+	</body>
 </html>
