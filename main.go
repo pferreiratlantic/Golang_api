@@ -11,5 +11,5 @@ func main() {
 		os.Getenv("APP_DB_PASSWORD"),
 		os.Getenv("APP_DB_NAME"))
 
-	a.Run(":8010")
+	a.Run(":10000")
 }
