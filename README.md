@@ -22,8 +22,8 @@ At the end of the page you can see a table with number os users per country.
 ## Run locally
 
 - Start postgres
-- Execute script on dir schemas:
-	psql - U postgres postgres -f schema.sql
+- Execute script from dir schemas:
+	psql -U postgres postgres -f schema.sql
 
 - Configure environment
 
@@ -43,7 +43,7 @@ $ killall -9 Exercise1Api -v
 $ ./Exercise1Api &
 ```
 
-Server is listening on localhost:10000
+Server API is listening on localhost:10000
 
 ## Testing
 
