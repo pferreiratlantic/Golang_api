@@ -4,7 +4,7 @@ Exercise1
 ## Context of the Exercise
 
 It was a challenge to choose what language to use on this exercise.
-Since is was placed as preference the Golang and / or VueJs, i decided to give a shot to Golang.
+Since it was placed as preference the Golang and / or VueJs, i decided to give a shot to Golang.
 I decided to develop the API with Golang, using Postgresql as database engine and for the frontend 
 page i have done a simple html page with jquery / ajax support to handle http requests between client
 and server.
@@ -13,7 +13,7 @@ one million entries to populate database, i have decided to work in some sort of
 The frontend i have invested minimum time, its has a simple page, on the first section is possible to load
 a csv from URL or if it goes empty the Api will use the provided csv. It is possible to get all user from a specific
 country and since it was a huge load of entries i decided to make it with offsets to be easier to read.
-At the end of the page you can see a table with number os users per country.
+At the end of the page you can see a table with number of users per country.
 
 
 
