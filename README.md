@@ -4,8 +4,8 @@ Exercise1
 ## Run locally
 
 - Start postgres
-- Execute script on dir schemas:
-	psql - U postgres postgres -f schema.sql
+- Execute script from dir schemas:
+	psql -U postgres postgres -f schema.sql
 
 - Configure environment
 
@@ -25,7 +25,7 @@ $ killall -9 Exercise1Api -v
 $ ./Exercise1Api &
 ```
 
-Server is listening on localhost:10000
+Server API is listening on localhost:10000
 
 ## Testing
 
