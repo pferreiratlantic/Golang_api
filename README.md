@@ -22,6 +22,7 @@ At the end of the page you can see a table with number of users per country.
 ## Run locally
 
 - Start postgres
+	Database schema Postgres used to avoid creation on new schema
 - Execute script from dir schemas:
 	psql -U postgres postgres -f schema.sql
 
