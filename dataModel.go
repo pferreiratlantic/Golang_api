@@ -206,7 +206,6 @@ func createSetOfUsersByBatch(db *sql.DB,setOfUsers []userDataType) (int, error) 
                         strings.Join(valueStrings, ","))
     		_, err := db.Exec(stmt, valueArgs...)
     		if err != nil{
-    			fmt.Println("Exec createSetOfUsersByBatch with errors")
 				return counter, err
 			}
         	valueArgs = nil
@@ -219,7 +218,6 @@ func createSetOfUsersByBatch(db *sql.DB,setOfUsers []userDataType) (int, error) 
                 strings.Join(valueStrings, ","))
 	_, err := db.Exec(stmt, valueArgs...)
 	if err != nil{
-		fmt.Println("Exec createSetOfUsersByBatch with errors")
 		return counter, err
 	}
     

@@ -42,7 +42,7 @@ type customQueryGetCountriesJSONFormatted struct {
 	Country string `json:"countryName"`
 }
 
-//This is the data type section for api client 
+//Data type section  
 
 type userDataType struct {
 	ID int 

@@ -28,14 +28,11 @@ func loadUsersFromCsv(a *App, csvPath string, csvLocation string) (int, error) {
 	var csvFileName string = ""
 
 	if csvPath != "" && evaluateRegexOnString(`http[s]://[A-Za-z./-_].csv$`,csvPath) == false{
-		fmt.Println("Invalid path " , csvPath)
 		return 0, nil
 	}
 
 
 	if csvLocation == "remote" {
-		fmt.Println("Running under downloadable file " , csvPath)
-
 	    // Build fileName from fullPath
 	    fileURL, err := url.Parse(csvPath)
 	    if err != nil {
@@ -83,7 +80,7 @@ func loadUsersFromCsv(a *App, csvPath string, csvLocation string) (int, error) {
 		return 0, err
 	}
 
-	count, err := computeCustomerDataFromCsv(a,recordFile)
+	count, err := computeuserRowDataFromCsv(a,recordFile)
 
 	recordFile.Close()
 
@@ -95,10 +92,8 @@ func loadUsersFromCsv(a *App, csvPath string, csvLocation string) (int, error) {
 	}
 
 	if err != nil{
-		fmt.Println("Exec computeCustomerDataFromCsv with errors")
 		return count, err
 	}
-
 
 	return count, nil
 		
@@ -106,10 +101,10 @@ func loadUsersFromCsv(a *App, csvPath string, csvLocation string) (int, error) {
 
 //This method will parse the content to create a set of users, 
 //leaving a structure ready to be executed on model layer
-func computeCustomerDataFromCsv(a *App, recordFile *os.File) (int,error){
+func computeuserRowDataFromCsv(a *App, recordFile *os.File) (int,error){
 
 	var setOfUsers = []userDataType{}
-	var customer userDataType
+	var userRow userDataType
 	var count int = 0
 
 	reader := csv.NewReader(recordFile)
@@ -130,39 +125,39 @@ func computeCustomerDataFromCsv(a *App, recordFile *os.File) (int,error){
 		}
 		count ++
 
-		customer.ID, _ = strconv.Atoi(record[0])
-		customer.Email = record[1]
-		customer.Phone = record[2]
+		userRow.ID, _ = strconv.Atoi(record[0])
+		userRow.Email = record[1]
+		userRow.Phone = record[2]
 		valueOfParcelWeight, _ := strconv.ParseFloat(strings.TrimSpace(record[3]), 64)
-		customer.ParcelWeight = valueOfParcelWeight
+		userRow.ParcelWeight = valueOfParcelWeight
 
 		if evaluateRegexOnString(`237\ ?[2368]\d{7,8}$`,record[2]) == true{
-			customer.Country = 1
-			setOfUsers = append(setOfUsers, customer)
+			userRow.Country = 1
+			setOfUsers = append(setOfUsers, userRow)
 			continue
 		}
 		if evaluateRegexOnString(`251\ ?[1-59]\d{8}$`,record[2]) == true{
-			customer.Country = 2
-			setOfUsers = append(setOfUsers, customer)
+			userRow.Country = 2
+			setOfUsers = append(setOfUsers, userRow)
 			continue
 		}
 		if evaluateRegexOnString(`212\ ?[5-9]\d{8}$`,record[2]) == true{
-			customer.Country = 3
-			setOfUsers = append(setOfUsers, customer)
+			userRow.Country = 3
+			setOfUsers = append(setOfUsers, userRow)
 			continue
 		}
-		if evaluateRegexOnString(`237\ ?[2368]\d{7,8}$`,record[2]) == true{
-			customer.Country = 4
-			setOfUsers = append(setOfUsers, customer)
+		if evaluateRegexOnString(`258\ ?[28]\d{7,8}$`,record[2]) == true{
+			userRow.Country = 4
+			setOfUsers = append(setOfUsers, userRow)
 			continue
 		}
 		if evaluateRegexOnString(`256\ ?\d{9}$`,record[2]) == true{
-			customer.Country = 5
-			setOfUsers = append(setOfUsers, customer)
+			userRow.Country = 5
+			setOfUsers = append(setOfUsers, userRow)
 			continue
 		}
-		customer.Country = 0
-		setOfUsers = append(setOfUsers, customer)
+		userRow.Country = 0
+		setOfUsers = append(setOfUsers, userRow)
 	}
 
 	countReg, err := createSetOfUsersByBatch(a.DB, setOfUsers)

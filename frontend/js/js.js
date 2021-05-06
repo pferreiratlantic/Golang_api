@@ -7,13 +7,13 @@ $(document).ready(function(){
         url:"/statistics",
         type: "GET",
         success: function(userPerContryResults){
+            $('#numOfUserPerCountry').empty();
             for (var i = 0; i < userPerContryResults.length; i++) {
                 var line = '<tr><td>'+
                 userPerContryResults[i].count+
                 '</td><td>'+
                 userPerContryResults[i].countryName+
                 '</tr>'
-                $('#numOfUserPerCountry').empty();
                 $('#numOfUserPerCountry').append(line);
             }
         }
@@ -36,6 +36,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
         $('#button2').on('click', function(e){
+            currentOffset = 0
             currentCountrySet=$( "#countrySelector option:selected" ).text();
             e.preventDefault();
             $.ajax({
@@ -193,13 +194,13 @@ $(document).ready(function(){
                             url:"/statistics",
                             type: "GET",
                             success: function(userPerContryResults){
+                                $('#numOfUserPerCountry').empty();
                                 for (var i = 0; i < userPerContryResults.length; i++) {
                                     var line = '<tr><td>'+
                                     userPerContryResults[i].count+
                                     '</td><td>'+
                                     userPerContryResults[i].countryName+
                                     '</tr>'
-                                    $('#numOfUserPerCountry').empty();
                                     $('#numOfUserPerCountry').append(line);
                                 }
                             }

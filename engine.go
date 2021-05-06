@@ -82,7 +82,6 @@ func (a *App) initializeRoutes() {
 	a.Router.HandleFunc("/countries", a.getCountries).Methods("GET")
 }
 
-
 //This section represents our handlers for our routes
 func (a *App) getUser(w http.ResponseWriter, r *http.Request) {
 	//fmt.Println("Exec getUser")
